@@ -1,0 +1,17 @@
+@startuml
+actor User
+participant main
+participant JsonLite
+participant Controller
+participant Tui
+User -> main: run with input + --tui
+main -> JsonLite: load & parse
+JsonLite --> main: MicrogridModel
+main -> Controller: runSimulation(model)
+loop each timestep
+  Controller -> Controller: forecast & reserve SoC
+  Controller -> Controller: dispatch renew/batt/diesel
+  Controller -> Tui: renderStep(...)
+end
+Controller --> main: summary
+@enduml

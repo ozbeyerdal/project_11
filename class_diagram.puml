@@ -1,0 +1,44 @@
+@startuml
+skinparam classAttributeIconSize 0
+package data_structures {
+  class LinkedList<T> {
+    - Node* head_
+    - Node* tail_
+    - int sz_
+    + LinkedList()
+    + ~LinkedList()
+    + void push_back(const T&)
+    + int size() const
+    + T& operator[](int)
+    + void pop_front()
+  }
+
+  class LinkedQueue<T> {
+    - Node* front_
+    - Node* back_
+    - int sz_
+    + LinkedQueue()
+    + ~LinkedQueue()
+    + void push(const T&)
+    + void pop()
+    + T& front()
+    + int size() const
+  }
+}
+package core {
+  enum SourceType { Solar, Wind, Diesel }
+  class Source
+  class Battery
+  class Load
+  class TimeSeries
+  class SimulationConfig
+  class MicrogridModel
+  class Controller
+  class JsonLite
+}
+core.MicrogridModel *-- core.Battery
+core.MicrogridModel *-- core.Source
+core.MicrogridModel *-- core.Load
+core.Controller ..> core.MicrogridModel
+core.JsonLite ..> core.MicrogridModel
+@enduml
