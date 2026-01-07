@@ -1,0 +1,19 @@
+{
+  "sources": [
+    {"id": "Solar1", "type": "solar", "peak_kw": 50},
+    {"id": "Wind1",  "type": "wind",  "peak_kw": 30},
+    {"id": "Diesel1","type": "diesel","capacity_kw": 40}
+  ],
+  "storage": [
+    {"id": "Batt1", "capacity_kwh": 100, "soc": 0.6, "charge_rate": 20, "discharge_rate": 25}
+  ],
+  "loads": [
+    {"id": "Residential", "base_kw": 25},
+    {"id": "Commercial",  "base_kw": 35}
+  ],
+  "time_series": {
+    "solar_profile": [0, 0, 0, 0.1, 0.4, 0.7, 0.9, 1.0, 0.9, 0.7, 0.4, 0.1],
+    "load_profile":  [0.5, 0.4, 0.4, 0.5, 0.7, 0.9, 1.0, 0.95, 0.8, 0.7, 0.6, 0.5]
+  },
+  "simulation": {"time_step_minutes": 15, "duration_hours": 48}
+}
